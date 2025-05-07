@@ -1,0 +1,35 @@
+#!/bin/sh
+
+LOGFILE="/mnt/sdcard/cubegm/rkgame_log.txt"
+REAL_EXEC="/mnt/sdcard/cubegm/rkgame.bin"
+
+START_TIME=$(date +%s)
+echo "[`date +%H:%M:%S`] [INFO] Intercepting rkgame, attempting terminal shell..." >> "$LOGFILE"
+
+export TERM=linux
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+TERMINAL_BIN="/mnt/sdcard/cubegm/sh"
+if [ -x "$TERMINAL_BIN" ]; then
+  ( sleep 15 && kill $$ ) &
+  TIMEOUT_PID=$!
+  "$TERMINAL_BIN"
+  kill $TIMEOUT_PID 2>/dev/null
+else
+  echo "[`date +%H:%M:%S`] [WARN] Terminal shell not found, skipping terminal session..." >> "$LOGFILE"
+fi
+
+echo "[`date +%H:%M:%S`] [INFO] Proceeding to rkgame.bin..." >> "$LOGFILE"
+
+if [ ! -x "$REAL_EXEC" ]; then
+  echo "[`date +%H:%M:%S`] [ERROR] rkgame.bin not found or not executable" >> "$LOGFILE"
+  exit 1
+fi
+
+"$REAL_EXEC" "$@" >> "$LOGFILE" 2>&1
+EXIT_CODE=$?
+END_TIME=$(date +%s)
+DURATION=$((END_TIME - START_TIME))
+
+echo "[`date +%H:%M:%S`] [INFO] rkgame exited with code $EXIT_CODE after ${DURATION}s" >> "$LOGFILE"
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+LOGFILE="/mnt/sdcard/cubegm/rkgame_log.txt"
+REAL_EXEC="/mnt/sdcard/cubegm/rkgame.bin"
+
+echo "[`date +%H:%M:%S`] [INFO] Launching rkgame..." >> "$LOGFILE"
+
+exec "$REAL_EXEC" "$@" >> "$LOGFILE" 2>&1
+

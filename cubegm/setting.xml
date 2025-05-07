@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?> <autorun file="" driver="" /> <autorestore>00</autorestore>
+<config language="0" volume="49" screen="1" light="75" /> <ui
+name="English" filename="ui_en.cpd" gamelist="0" /> <ui
+name="简体中文" filename="ui_cn.cpd" gamelist="1" /> <ui
+name="繁體中文" filename="ui_tw.cpd" gamelist="0" /> <ui
+name="日本語" filename="ui_jp.cpd" gamelist="0" /> <ui
+name="한국의" filename="ui_ko.cpd" gamelist="0" /> <ui
+name="Русский" filename="ui_ru.cpd" gamelist="0" /> <ui
+name="Deutsch" filename="ui_de.cpd" gamelist="0" /> <ui name="Italiano"
+filename="ui_it.cpd" gamelist="0" /> <ui name="Español"
+filename="ui_es.cpd" gamelist="0" /> <ui name="Protuguês"
+filename="ui_pt.cpd" gamelist="0" /> <ui name="Nederlands"
+filename="ui_nl.cpd" gamelist="0" /> <ui name="Svenska"
+filename="ui_se.cpd" gamelist="0" /> <ui name="Dansk"
+filename="ui_dk.cpd" gamelist="0" /> <ui name="Norsk bokmal"
+filename="ui_no.cpd" gamelist="0" /> <ui name="Polski"
+filename="ui_pl.cpd" gamelist="0" /> <ui name="ελληνικά"
+filename="ui_gr.cpd" gamelist="0" /> <ui name="Français"
+filename="ui_fr.cpd" gamelist="0" /> <ui name="Suomi"
+filename="ui_fi.cpd" gamelist="0" /> <ui name="tiếng việt"
+filename="ui_vn.cpd" gamelist="0" /> <ui name="Indonesia"
+filename="ui_id.cpd" gamelist="0" /> <ui name="סיברית"
+filename="ui_he.cpd" gamelist="0" /> <ui name="Türkçe"
+filename="ui_tr.cpd" gamelist="0" /> <ui name="český"
+filename="ui_cz.cpd" gamelist="0" /> <ui name="Монгол"
+filename="ui_mn.cpd" gamelist="0" /><ui name="اللغة العربية"
+filename="ui_il.cpd" gamelist="0" /> <sound> <bgm file="bgm.mp3" /> <effect0
+file="MoveYesNo.wav" /> <effect1 file="SelectGame.wav" /> <effect2
+file="SetKeySound.wav" /> <effect3 file="PressYesNo.wav" /> <effect4
+file="FlyIn_V.wav" /> <effect5 file="FlyIn_H.wav" /> <effect6
+file="PageBack.wav" /> <effect7 file="PopUp.wav" /> <effect8
+file="Browsing.wav" /> </sound>

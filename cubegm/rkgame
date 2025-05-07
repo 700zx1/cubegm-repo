@@ -1,0 +1,35 @@
+#!/bin/sh
+
+LOGFILE="/mnt/sdcard/cubegm/rkgame_log.txt"
+REAL_EXEC="/mnt/sdcard/cubegm/rkgame.bin"
+TERMINAL_BIN="/mnt/sdcard/cubegm/sh"
+
+START_TIME=$(date +%s)
+echo "[`date +%H:%M:%S`] [INFO] Redirecting I/O to /dev/console..." >> "$LOGFILE"
+
+# Redirect all I/O to console
+exec </dev/console >/dev/console 2>&1
+
+echo "[`date +%H:%M:%S`] [INFO] Attempting to verify console access with test output..." >> "$LOGFILE"
+echo "SF3000 Console Test: If you see this, /dev/console is active." > /dev/console
+
+if [ -x "$TERMINAL_BIN" ]; then
+  echo "[`date +%H:%M:%S`] [INFO] Launching terminal shell in forced interactive mode..." >> "$LOGFILE"
+  "$TERMINAL_BIN" -i
+else
+  echo "[`date +%H:%M:%S`] [WARN] Terminal shell not found. Skipping to rkgame.bin..." >> "$LOGFILE"
+fi
+
+echo "[`date +%H:%M:%S`] [INFO] Proceeding to rkgame.bin..." >> "$LOGFILE"
+
+if [ ! -x "$REAL_EXEC" ]; then
+  echo "[`date +%H:%M:%S`] [ERROR] rkgame.bin not found or not executable" >> "$LOGFILE"
+  exit 1
+fi
+
+"$REAL_EXEC" "$@" >> "$LOGFILE" 2>&1
+EXIT_CODE=$?
+END_TIME=$(date +%s)
+DURATION=$((END_TIME - START_TIME))
+
+echo "[`date +%H:%M:%S`] [INFO] rkgame exited with code $EXIT_CODE after ${DURATION}s" >> "$LOGFILE"
